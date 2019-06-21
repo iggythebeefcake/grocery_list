@@ -3,9 +3,9 @@
 one:
   name: MyString
   price: 1.5
-  purchased: false
+  checked: false
 
 two:
   name: MyString
   price: 1.5
-  purchased: false
+  checked: false

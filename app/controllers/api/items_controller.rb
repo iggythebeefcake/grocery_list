@@ -5,7 +5,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    @item = Iten.new(item_params)
+    @item = Item.new(item_params)
 
     if @item.save
       render json: @item
@@ -16,7 +16,8 @@ class Api::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(purchased: !@item.purchased)
+    # if @item.update(item_params)
+    @item.update(complete: !@item.complete)
     render @item
   end
 
@@ -28,7 +29,7 @@ class Api::ItemsController < ApplicationController
   private
 
   def item_params
-    prams.require(:item).permit(:name, :price, :purchased)
+    params.require(:item).permit(:name, :price, :purchased)
   end
 
 end
